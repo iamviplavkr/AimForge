@@ -30,7 +30,6 @@
 
 ## 🧩 How to Run
 
-1. Clone the repository:
    ```bash
    git clone https://github.com/iamviplavkr/AimForge.git
    1. cd AimForge
