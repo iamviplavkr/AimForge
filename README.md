@@ -32,5 +32,9 @@
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/AimForge.git
-   cd AimForge
+   git clone https://github.com/iamviplavkr/AimForge.git
+   1. cd AimForge
+   2. pip install pygame
+   3. python aimforge.py
+
+
