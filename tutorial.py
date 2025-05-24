@@ -3,37 +3,36 @@ import random
 import time
 import pygame
 pygame.init()
-
 WIDTH, HEIGHT = 800, 600
 
-WIN = pygame.display.set_mode((WIDTH, HEIGHT))#draws up a black screen
+WIN = pygame.display.set_mode((WIDTH, HEIGHT)) # Draws up a black screen
 pygame.display.set_caption("Aim Forge")
 
-TARGET_INCREMENT = 400
-TARGET_EVENT = pygame.USEREVENT
+TARGET_INCREMENT = 400 # 400 mili-seconds , delay in order to create another event
+TARGET_EVENT = pygame.USEREVENT # Custom event
 
 TARGET_PADDING = 30
 
-BG_COLOR = (0, 25, 40)
+BG_COLOR = (0, 25, 40) # RGB
 LIVES = 3
 TOP_BAR_HEIGHT = 50
 
 LABEL_FONT = pygame.font.SysFont("comicsans", 24)
 
 
-class Target:
+class Target: # Size of the target which will be growing and shrinking
     MAX_SIZE = 30
-    GROWTH_RATE = 0.2
+    GROWTH_RATE = 0.2 # How many pixel we want to grow the target
     COLOR = "red"
     SECOND_COLOR = "white"
 
-    def __init__(self, x, y):
+    def __init__(self, x, y): # Contructors for the target
         self.x = x
         self.y = y
-        self.size = 0
+        self.size = 0 # Radius of the target which we will grow at 0.2
         self.grow = True
 
-    def update(self):
+    def update(self): # Updates the size of targets
         if self.size + self.GROWTH_RATE >= self.MAX_SIZE:
             self.grow = False
 
@@ -48,10 +47,10 @@ class Target:
                            (self.x, self.y), self.size * 0.8)
         pygame.draw.circle(win, self.COLOR, (self.x, self.y), self.size * 0.6)
         pygame.draw.circle(win, self.SECOND_COLOR,
-                           (self.x, self.y), self.size * 0.4)
+                           (self.x, self.y), self.size * 0.4) # Overlapping of circles
 
     def collide(self, x, y):
-        dis = math.sqrt((x - self.x)**2 + (y - self.y)**2)
+        dis = math.sqrt((x - self.x)**2 + (y - self.y)**2) # Distance formula for the collision
         return dis <= self.size
 
 
@@ -63,7 +62,7 @@ def draw(win, targets):
 
 
 def format_time(secs):
-    milli = math.floor(int(secs * 1000 % 1000) / 100)
+    milli = math.floor(int(secs * 1000 % 1000) / 100) # Gives us the number of milliseconds that we are displaying
     seconds = int(round(secs % 60, 1))
     minutes = int(secs // 60)
 
@@ -119,7 +118,7 @@ def get_middle(surface):
     return WIDTH / 2 - surface.get_width()/2
 
 
-def main():
+def main(): # This loop will prevent the window from closing
     run = True
     targets = []
     clock = pygame.time.Clock()
@@ -127,23 +126,23 @@ def main():
     targets_pressed = 0
     clicks = 0
     misses = 0
-    start_time = time.time()
+    start_time = time.time() # To track the elapsed time
 
     pygame.time.set_timer(TARGET_EVENT, TARGET_INCREMENT)
 
     while run:
         clock.tick(60)
         click = False
-        mouse_pos = pygame.mouse.get_pos()
-        elapsed_time = time.time() - start_time
+        mouse_pos = pygame.mouse.get_pos() # Gives the x and y coordinates of the mouse
+        elapsed_time = time.time() - start_time # Number of elapsed seconds
 
-        for event in pygame.event.get():
+        for event in pygame.event.get(): # Looks through all the event
             if event.type == pygame.QUIT:
                 run = False
                 break
 
             if event.type == TARGET_EVENT:
-                x = random.randint(TARGET_PADDING, WIDTH - TARGET_PADDING)
+                x = random.randint(TARGET_PADDING, WIDTH - TARGET_PADDING) # Targets does not appear off the screen
                 y = random.randint(
                     TARGET_PADDING + TOP_BAR_HEIGHT, HEIGHT - TARGET_PADDING)
                 target = Target(x, y)
@@ -158,11 +157,11 @@ def main():
 
             if target.size <= 0:
                 targets.remove(target)
-                misses += 1
+                misses += 1 # When the size of target become zero, we will remove it from the screen
 
             if click and target.collide(*mouse_pos):
                 targets.remove(target)
-                targets_pressed += 1
+                targets_pressed += 1 # To remove the target after it has been pressed
 
         if misses >= LIVES:
             end_screen(WIN, elapsed_time, targets_pressed, clicks)
@@ -171,8 +170,8 @@ def main():
         draw_top_bar(WIN, elapsed_time, targets_pressed, misses)
         pygame.display.update()
 
-    pygame.quit()
+    pygame.quit() # It will quit the window
 
 
-if __name__ == "__main__":
+if __name__ == "__main__": # Main function
     main()
