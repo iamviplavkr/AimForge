@@ -1,36 +1,36 @@
 # 🎯 AimForge – Aim Trainer Game
 
-**AimForge** is a fast-paced, reaction-based aim trainer built using **Python** and **Pygame**. It tests your reflexes by spawning animated targets that grow and shrink, and tracks your performance in real time.
+**AimForge** is a fast-paced, reaction-based aim trainer built using **Python** and **Pygame**. It challenges players to hit animated targets with precision and speed while tracking performance in real time.
 
 ---
 
 ## 🔍 Preview
 
-![AimForge Gameplay](https://ezgif.com/save/ezgif-1e4d85a04f0795.gif)
+![AimForge Gameplay](https://ezgif.com/save/ezgif-1f95887646498a.gif)
 
 ---
 
 ## 🚀 Features
 
-- 🕹️ Dynamic, growing/shrinking targets
-- 🧠 Real-time performance metrics (speed, accuracy, hits)
-- 💡 Visual feedback with target animations
-- 📊 Game-over screen with summary stats
-- ⏱ Smooth 60 FPS gameplay with custom timers
+- 🕹️ Dynamic, animated targets that grow and shrink  
+- 🧠 Real-time tracking of hits, accuracy, and speed  
+- 💡 Visual feedback and scoring logic  
+- 📊 End-game screen with performance summary  
+- ⏱ Optimized for 60 FPS gameplay using `pygame.time.Clock`
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **Language**: Python  
-- **Graphics Engine**: Pygame  
-- **Modules Used**: `math`, `random`, `time`, `pygame`
+- **Language:** Python  
+- **Library:** Pygame  
+- **Standard Modules:** `math`, `random`, `time`
 
 ---
 
 ## 🧩 How to Run
 
-1. Clone this repository:
+1. Clone the repository:
    ```bash
    git clone https://github.com/your-username/AimForge.git
    cd AimForge
