@@ -6,7 +6,7 @@
 
 ## 🔍 Preview
 
-![AimForge Gameplay](https://ezgif.com/save/ezgif-1f95887646498a.gif)
+![AimForge Gameplay](https://ezgif.com/save/ezgif-1f95887646498a.gif))
 
 ---
 
