@@ -6,7 +6,7 @@
 
 ## 🔍 Preview
 
-![AimForge Gameplay](https://ezgif.com/save/ezgif-1f95887646498a.gif))
+![AimForge Gameplay]("C:\Users\vipla\Downloads\ScreenRecording2025-05-24133553-ezgif.com-video-to-gif-converter(1).gif")
 
 ---
 
